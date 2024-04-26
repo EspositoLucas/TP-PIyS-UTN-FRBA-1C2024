@@ -4,7 +4,6 @@ def normalize_data(input_file, output_file):
     data = pd.read_csv(input_file, parse_dates=['date'])
     
     data['date'] = pd.to_datetime(data['date'], format='%d/%m/%y')
-    data['close'] = (data['close'] - data['close'].min()) / (data['close'].max() - data['close'].min())
 
     data = data[['date', 'close']]
 
