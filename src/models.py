@@ -17,7 +17,6 @@ def arima_non_seasonal(train, test, predict):
     forecast = model_fit.forecast(steps=len(test) + len(predict))[len(test):]
     return forecast
 
-
 # STL
 def stl_forecast(train, test, predict):
     stl = seasonal_decompose(train['close'], period=12)
