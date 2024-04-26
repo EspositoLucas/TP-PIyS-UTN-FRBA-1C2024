@@ -5,14 +5,14 @@ from statsmodels.tsa.seasonal import seasonal_decompose
 
 # ARIMA Seasonal
 def arima_seasonal(train, test, predict):
-    model = ARIMA(train['precio'], order=(1, 1, 1), seasonal_order=(1, 1, 1, 12))
+    model = ARIMA(train['close'], order=(1, 1, 1), seasonal_order=(1, 1, 1, 12))
     model_fit = model.fit()
     forecast = model_fit.forecast(steps=len(test) + len(predict))[len(test):]
     return forecast
 
 # ARIMA No Seasonal
 def arima_non_seasonal(train, test, predict):
-    model = ARIMA(train['precio'], order=(1, 1, 1))
+    model = ARIMA(train['close'], order=(1, 1, 1))
     model_fit = model.fit()
     forecast = model_fit.forecast(steps=len(test) + len(predict))[len(test):]
     return forecast
