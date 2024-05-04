@@ -13,4 +13,4 @@ def normalize_data(input_file, output_file):
 # normalize_data('dataset/MacroTrends_Data_Download_TSLA.csv', 'dataset/acciones_tesla_normalizados.csv')
 
 normalize_data('dataset/HistoricalData_tesla.csv', 'dataset/acciones_nasdaq_toyota_normalizados.csv')
-normalize_data('dataset/HistoricalData_tesla.csv', 'dataset/acciones_nasdaq_tesla_normalizados.csv')
+normalize_data('dataset/HistoricalData_toyota.csv', 'dataset/acciones_nasdaq_tesla_normalizados.csv')
