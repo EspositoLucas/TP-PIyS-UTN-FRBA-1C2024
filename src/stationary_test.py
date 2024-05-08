@@ -45,6 +45,9 @@ print(tesla_data_2_detrended_df.head())
 print("\nColumnas de fecha y precio de cierre para la serie estacionaria de Toyota:")
 print(toyota_data_2_detrended_df.head())
 
+# Guardar las series estacionarias en archivos CSV
+tesla_data_2_detrended_df.to_csv('dataset/acciones_tesla_estacionaria.csv', index=False)
+toyota_data_2_detrended_df.to_csv('dataset/acciones_toyota_estacionaria.csv', index=False)
 
 # Tests de estacionariedad
 def adf_test(timeseries):
