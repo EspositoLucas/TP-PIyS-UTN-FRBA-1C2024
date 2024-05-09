@@ -2,6 +2,8 @@ import pandas as pd
 from data_processing import load_data, split_data
 from models import arima_seasonal, arima_non_seasonal, stl_forecast, linear_forecast
 from visualization import plot_results
+import warnings
+warnings.filterwarnings("ignore")
 
 def main():
     # Cargar y preprocesar los datos
@@ -35,4 +37,4 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    main() 
