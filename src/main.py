@@ -109,8 +109,8 @@ def main():
     toyota_linear = sumar_media(toyota_data, toyota_linear)
 
     # Visualización
-    plot_results(tesla_data, tesla_train, tesla_test, tesla_predict, tesla_arima_seasonal, tesla_linear, "Tesla")
-    plot_results(toyota_data, toyota_train, toyota_test, toyota_predict, toyota_arima_seasonal, toyota_linear, "Toyota")
+    plot_results(tesla_data, tesla_train, tesla_test, tesla_predict, tesla_arima_seasonal, tesla_linear, "Tesla", tesla_data, toyota_data, toyota_arima_seasonal, toyota_linear)
+    plot_results(toyota_data, toyota_train, toyota_test, toyota_predict, toyota_arima_seasonal, toyota_linear, "Toyota", tesla_data, toyota_data, toyota_arima_seasonal, toyota_linear)
 
 if __name__ == "__main__":
     main()

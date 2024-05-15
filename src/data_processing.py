@@ -45,8 +45,8 @@
 import pandas as pd
 
 def load_data():
-    tesla_data = pd.read_csv('dataset/acciones_tesla_estacionaria.csv')
-    toyota_data = pd.read_csv('dataset/acciones_toyota_estacionaria.csv')
+    tesla_data = pd.read_csv('dataset/2025/acciones_tesla_estacionaria_2025.csv')
+    toyota_data = pd.read_csv('dataset/2025/acciones_toyota_estacionaria_2025.csv')
 
     tesla_data['date'] = pd.to_datetime(tesla_data['date'], format='%d/%m/%y')
     toyota_data['date'] = pd.to_datetime(toyota_data['date'], format='%d/%m/%y')

@@ -59,19 +59,49 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 
-def plot_results(data, train, test, predict, arima_seasonal, linear, empresa):
+def plot_results(data, train, test, predict, arima_seasonal, linear, empresa, tesla_data,toyota_data, toyota_arima_seasonal, toyota_linear):
     # ARIMA Seasonal
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.plot(predict.index, arima_seasonal, color='blue', label='ARIMA Seasonal')
-    ax.plot(predict.index, data.loc[predict.index, 'close'], color='red', label='Datos reales')
+    ax.plot(predict.index[predict.index.year == 2025], arima_seasonal[predict.index.year == 2025], color='blue', label=f'{empresa} ARIMA Seasonal 2025')
+    ax.plot(predict.index[predict.index.year == 2024], data.loc[predict.index[predict.index.year == 2024], 'close'], color='red', label='Datos reales 2024')
     ax.set_title(f'Predicción con ARIMA Seasonal para {empresa} (2025)')
     ax.legend()
     plt.show()
 
     # Forecasting Lineal
     fig, ax = plt.subplots(figsize=(12, 6))
-    ax.plot(predict.index, linear, color='blue', label='Forecasting Lineal')
-    ax.plot(predict.index, data.loc[predict.index, 'close'], color='red', label='Datos reales')
+    ax.plot(predict.index[predict.index.year == 2025], linear[predict.index.year == 2025], color='blue', label=f'{empresa} Forecasting Lineal 2025')
+    ax.plot(predict.index[predict.index.year == 2024], data.loc[predict.index[predict.index.year == 2024], 'close'], color='red', label='Datos reales 2024')
     ax.set_title(f'Predicción con Forecasting Lineal para {empresa} (2025)')
+    ax.legend()
+    plt.show()
+
+    # Gráfico comparativo ARIMA Seasonal
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.plot(predict.index[predict.index.year == 2025], arima_seasonal[predict.index.year == 2025], label=f'{empresa} ARIMA Seasonal 2025')
+    if empresa == 'Tesla':
+        ax.plot(predict.index[predict.index.year == 2025], toyota_arima_seasonal[predict.index.year == 2025], label='Toyota ARIMA Seasonal 2025')
+        ax.plot(predict.index[predict.index.year == 2024], tesla_data.loc[predict.index[predict.index.year == 2024], 'close'], label='Tesla Datos reales 2024')
+        ax.plot(predict.index[predict.index.year == 2024], toyota_data.loc[predict.index[predict.index.year == 2024], 'close'], label='Toyota Datos reales 2024')
+    else:
+        ax.plot(predict.index[predict.index.year == 2025], tesla_arima_seasonal[predict.index.year == 2025], label='Tesla ARIMA Seasonal 2025')
+        ax.plot(predict.index[predict.index.year == 2024], toyota_data.loc[predict.index[predict.index.year == 2024], 'close'], label='Toyota Datos reales 2024')
+        ax.plot(predict.index[predict.index.year == 2024], tesla_data.loc[predict.index[predict.index.year == 2024], 'close'], label='Tesla Datos reales 2024')
+    ax.set_title('Comparación de predicciones ARIMA Seasonal 2025')
+    ax.legend()
+    plt.show()
+
+    # Gráfico comparativo Forecasting Lineal
+    fig, ax = plt.subplots(figsize=(12, 6))
+    ax.plot(predict.index[predict.index.year == 2025], linear[predict.index.year == 2025], label=f'{empresa} Forecasting Lineal 2025')
+    if empresa == 'Tesla':
+        ax.plot(predict.index[predict.index.year == 2025], toyota_linear[predict.index.year == 2025], label='Toyota Forecasting Lineal 2025')
+        ax.plot(predict.index[predict.index.year == 2024], tesla_data.loc[predict.index[predict.index.year == 2024], 'close'], label='Tesla Datos reales 2024')
+        ax.plot(predict.index[predict.index.year == 2024], toyota_data.loc[predict.index[predict.index.year == 2024], 'close'], label='Toyota Datos reales 2024')
+    else:
+        ax.plot(predict.index[predict.index.year == 2025], tesla_linear[predict.index.year == 2025], label='Tesla Forecasting Lineal 2025')
+        ax.plot(predict.index[predict.index.year == 2024], toyota_data.loc[predict.index[predict.index.year == 2024], 'close'], label='Toyota Datos reales 2024')
+        ax.plot(predict.index[predict.index.year == 2024], tesla_data.loc[predict.index[predict.index.year == 2024], 'close'], label='Tesla Datos reales 2024')
+    ax.set_title('Comparación de predicciones Forecasting Lineal 2025')
     ax.legend()
     plt.show()
