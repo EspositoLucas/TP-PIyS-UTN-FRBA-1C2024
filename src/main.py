@@ -3,7 +3,7 @@
 
 # import pandas as pd
 # from data_processing import load_data, split_data,sumar_media
-# from models import arima_seasonal, arima_non_seasonal, stl_forecast, linear_forecast
+# from models import arima_seasonal, arima_non_seasonal, linear_forecast,holt_winters_forecast
 # from visualization import plot_results
 # import warnings
 # warnings.filterwarnings("ignore")
@@ -35,11 +35,18 @@
 #     print(tesla_arima_non_seasonal_pred)
 #     toyota_arima_non_seasonal_pred = arima_non_seasonal(toyota_train, toyota_test, toyota_predict) * 100000
 
-#     tesla_stl_pred = stl_forecast(tesla_train, tesla_test, tesla_predict)
-#     print("TESLA STL PRED")
-#     print(tesla_stl_pred)
-#     toyota_stl_pred = stl_forecast(toyota_train, toyota_test, toyota_predict) 
-
+#     # tesla_stl_pred = stl_forecast(tesla_train, tesla_test, tesla_predict)
+#     # print("TESLA STL PRED")
+#     # print(tesla_stl_pred)
+#     # toyota_stl_pred = stl_forecast(toyota_train, toyota_test, toyota_predict) 
+    
+#     tesla_holt_winters_pred = holt_winters_forecast(tesla_train, tesla_test, tesla_predict)
+#     print("TESLA HOLT WINTERS")
+#     print(tesla_holt_winters_pred)
+#     toyota_holt_winters_pred = holt_winters_forecast(toyota_train, toyota_test, toyota_predict)
+#     print("TOYOTA HOLT WINTERS")
+#     print(toyota_holt_winters_pred)
+    
 #     tesla_linear_pred = linear_forecast(tesla_train, tesla_predict) * (-100000) * 0.00025
 #     print("TESLA FORECAST LINEAL PRED")
 #     print(tesla_linear_pred)
@@ -56,15 +63,18 @@
 #     tesla_arima_non_seasonal = sumar_media(tesla_data, tesla_arima_non_seasonal_pred)
 #     toyota_arima_non_seasonal = sumar_media(toyota_data, toyota_arima_non_seasonal_pred)
 
-#     tesla_stl = sumar_media(tesla_data, tesla_stl_pred)
-#     toyota_stl = sumar_media(toyota_data, toyota_stl_pred)
+#     # tesla_stl = sumar_media(tesla_data, tesla_stl_pred)
+#     # toyota_stl = sumar_media(toyota_data, toyota_stl_pred)
+    
+#     tesla_holt_winters = sumar_media(tesla_data, tesla_holt_winters_pred)
+#     toyota_holt_winters = sumar_media(toyota_data, toyota_holt_winters_pred)
 
 #     tesla_linear = sumar_media(tesla_data, tesla_linear_pred)
 #     toyota_linear = sumar_media(toyota_data, toyota_linear_pred)
 
 #     # Visualización
-#     plot_results(tesla_data, tesla_train, tesla_test, tesla_predict, tesla_arima_seasonal_pred, tesla_arima_non_seasonal_pred, tesla_stl_pred, tesla_linear_pred, tesla_arima_seasonal, tesla_arima_non_seasonal, tesla_stl, tesla_linear, "Tesla")
-#     plot_results(toyota_data, toyota_train, toyota_test, toyota_predict, toyota_arima_seasonal_pred, toyota_arima_non_seasonal_pred, toyota_stl_pred, toyota_linear_pred, toyota_arima_seasonal, toyota_arima_non_seasonal, toyota_stl, toyota_linear, "Toyota")
+#     plot_results(tesla_data, tesla_train, tesla_test, tesla_predict, tesla_arima_seasonal_pred, tesla_arima_non_seasonal_pred, tesla_holt_winters_pred, tesla_linear_pred, tesla_arima_seasonal, tesla_arima_non_seasonal, tesla_holt_winters, tesla_linear, "Tesla")
+#     plot_results(toyota_data, toyota_train, toyota_test, toyota_predict, toyota_arima_seasonal_pred, toyota_arima_non_seasonal_pred, toyota_holt_winters_pred, toyota_linear_pred, toyota_arima_seasonal, toyota_arima_non_seasonal, toyota_holt_winters, toyota_linear, "Toyota")
 
 # if __name__ == "__main__":
 #     main()

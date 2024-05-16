@@ -4,7 +4,7 @@
 # import matplotlib.pyplot as plt
 # import pandas as pd
 
-# def plot_results(data, train, test, predict, arima_seasonal_pred, arima_non_seasonal_pred, stl_pred, linear_pred, arima_seasonal, arima_non_seasonal, stl, linear, empresa):
+# def plot_results(data, train, test, predict, arima_seasonal_pred, arima_non_seasonal_pred, stl_pred, linear_pred, arima_seasonal, arima_non_seasonal, holt_winters, linear, empresa):
 #     media = data['close'].mean()
 
 #     # Datos reales
@@ -37,9 +37,9 @@
 
 #     # STL + Media
 #     fig, ax = plt.subplots(figsize=(12, 6))
-#     ax.plot(predict.index, stl, color='blue', label='Predicción')
+#     ax.plot(predict.index, holt_winters, color='blue', label='Predicción')
 #     ax.plot(predict.index, data.loc[predict.index, 'close'], color='red', label='Datos reales')
-#     ax.set_title(f'Predicción con STL para {empresa}')
+#     ax.set_title(f'Predicción con Holt Winters para {empresa}')
 #     ax.legend()
 #     plt.show()
 
